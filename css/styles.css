@@ -20,6 +20,7 @@ h1 {
   font-family: 'Carme', sans-serif;
   font-size: 40px;
   color: #596872;
+  margin: 20px 0;
 }
 
 .start {
@@ -48,6 +49,7 @@ button {
   width: 600px;
   height: 600px;
   background: #DBECF5;
+  position: relative;
 }
 
 .row1, .row2, .row3 {
@@ -65,7 +67,8 @@ button {
   position: relative;
 }
 
-.x-turn, .o-turn {
+/*.x-turn, .o-turn */
+.selectedImage {
   width: 160px;
   height: 160px;
   position: absolute;
@@ -74,12 +77,53 @@ button {
   margin: auto;
 }
 
-/*.o-turn {
+/*#DBECF5 #B1CDDC , #8E9BA3 , #596872 , #393B42*/
 
-  margin-top: -160px;
-}*/
+.ver1, .ver2, .ver3, .hor1, .hor2, .hor3, .dia1, .dia2 {
+  height: 560px;
+  position: absolute;
+}
 
-/*.x-front {
-  position: relative;
-}*/
-/*#B1CDDC , #8E9BA3 , #596872 , #393B42*/
+.ver1, .ver2, .ver3 {
+  top: 15px;
+}
+
+.ver1 {
+  left: 80px;
+}
+
+.ver2 {
+  left: 280px;
+}
+
+.ver3 {
+  left: 480px;
+}
+
+
+.hor1, .hor2, .hor3 {
+  transform: rotate(90deg);
+  left: 280px;
+}
+
+.hor1 {
+  top: -175px;
+}
+
+.hor2 {
+  top: 20px;
+}
+
+.hor3 {
+  top: 215px;
+}
+
+
+.dia1, .dia2 {
+  left: 20px;
+  top: 20px;
+}
+
+.dia2 {
+  transform: rotate(90deg);
+}

@@ -9,6 +9,7 @@ var oPlay = "o";
 var gameStarted = false;
 
 
+
 $("div.grid").on("click", function () { /// how do you know if the game has started? a player has to be selected followed by grid being clicked
   if (currentPlayer === xPlay || currentPlayer === oPlay) {
     gameStarted = true; // if this is satisified then true
@@ -61,6 +62,7 @@ $("button#restart").on("click", function(){
 
 // $("div.box1").on('click', function (event){ //.one("click") -- allows the div to be clicked in once only instead of on("click") /// GLITCH!! stored click and couldn't click back in
 
+// v1
 // $("div.box1").one('click', function (){
 //   if (currentPlayer === xPlay) {
 //     $( "div.box1 img.x-turn" ).show(); // shows currentPlayer img, <img style="display: none">
@@ -75,147 +77,267 @@ $("button#restart").on("click", function(){
 //   }
 // });
 
+// v2
+// $("div.box1").on('click', function (event){
+//   if (currentPlayer === xPlay) {
+//     $( "div.box1 img.x-turn" ).show();
+//     currentPlayer = oPlay;
+//     $( "button#x-player" ).removeClass("active");
+//     $( "button#o-player" ).addClass("active");
+//     $( this ).off( event );
+//   } else if (currentPlayer === oPlay) {
+//     $( "div.box1 img.o-turn" ).show();
+//     currentPlayer = xPlay;
+//     $( "button#o-player" ).removeClass("active");
+//     $( "button#x-player" ).addClass("active");
+//     $( this ).off( event );
+//   }
+// });
+
+var xImage = "img/x.png";
+var oImage = "img/o.png";
+var win = false;
+
 ////// CONSIDER LATER: turn to a loop for less code //////
 $("div.box1").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box1 img.x-turn" ).show();
+    $( "div.box1 img.selectedImage" ).attr('src', xImage); // show src of xImage when div.box1 is clicked to test later in function
+    $( "div.box1 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box1 img.o-turn" ).show();
+    $( "div.box1 img.selectedImage" ).attr('src', oImage);
+    $( "div.box1 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo(); /// run function to test winning combinations
 });
 
 $("div.box2").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box2 img.x-turn" ).show();
+    $( "div.box2 img.selectedImage" ).attr('src', xImage);
+    $( "div.box2 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box2 img.o-turn" ).show();
+    $( "div.box2 img.selectedImage" ).attr('src', oImage);
+    $( "div.box2 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box3").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box3 img.x-turn" ).show();
+    $( "div.box3 img.selectedImage" ).attr('src', xImage);
+    $( "div.box3 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box3 img.o-turn" ).show();
+    $( "div.box3 img.selectedImage" ).attr('src', oImage);
+    $( "div.box3 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box4").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box4 img.x-turn" ).show();
+    $( "div.box4 img.selectedImage" ).attr('src', xImage);
+    $( "div.box4 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box4 img.o-turn" ).show();
+    $( "div.box4 img.selectedImage" ).attr('src', oImage);
+    $( "div.box4 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box5").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box5 img.x-turn" ).show();
+    $( "div.box5 img.selectedImage" ).attr('src', xImage);
+    $( "div.box5 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box5 img.o-turn" ).show();
+    $( "div.box5 img.selectedImage" ).attr('src', oImage);
+    $( "div.box5 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box6").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box6 img.x-turn" ).show();
+    $( "div.box6 img.selectedImage" ).attr('src', xImage);
+    $( "div.box6 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box6 img.o-turn" ).show();
+    $( "div.box6 img.selectedImage" ).attr('src', oImage);
+    $( "div.box6 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box7").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box7 img.x-turn" ).show();
+    $( "div.box7 img.selectedImage" ).attr('src', xImage);
+    $( "div.box7 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box7 img.o-turn" ).show();
+    $( "div.box7 img.selectedImage" ).attr('src', oImage);
+    $( "div.box7 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box8").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box8 img.x-turn" ).show();
+    $( "div.box8 img.selectedImage" ).attr('src', xImage);
+    $( "div.box8 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box8 img.o-turn" ).show();
+    $( "div.box8 img.selectedImage" ).attr('src', oImage);
+    $( "div.box8 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
 
 $("div.box9").on('click', function (event){
   if (currentPlayer === xPlay) {
-    $( "div.box9 img.x-turn" ).show();
+    $( "div.box9 img.selectedImage" ).attr('src', xImage);
+    $( "div.box9 img.selectedImage" ).show();
     currentPlayer = oPlay;
     $( "button#x-player" ).removeClass("active");
     $( "button#o-player" ).addClass("active");
     $( this ).off( event );
   } else if (currentPlayer === oPlay) {
-    $( "div.box9 img.o-turn" ).show();
+    $( "div.box9 img.selectedImage" ).attr('src', oImage);
+    $( "div.box9 img.selectedImage" ).show();
     currentPlayer = xPlay;
     $( "button#o-player" ).removeClass("active");
     $( "button#x-player" ).addClass("active");
     $( this ).off( event );
   }
+  wincombo();
 });
+
+
+
+// $( "div.win-combo img.ver1" ).show();
+// $( "div.win-combo img.ver2" ).show();
+// $( "div.win-combo img.ver3" ).show();
+// $( "div.win-combo img.hor1" ).show();
+// $( "div.win-combo img.hor2" ).show();
+// $( "div.win-combo img.hor3" ).show();
+// $( "div.win-combo img.dia1" ).show();
+// $( "div.win-combo img.dia2" ).show();
+
+// combinations -- reverse combinations in code
+// hor1 box1 box2 box3
+// hor2 box4 box5 box6
+// hor3 box7 box8 box9
+
+// ver1 box1 box4 box7
+// ver2 box2 box5 box8
+// ver3 box3 box6 box9
+
+// dia1 box1 box5 box9
+// dia2 box3 box5 box7
+
+function wincombo(){
+  var box1 = $( "div.box1 img.selectedImage" ).attr("src");
+  var box2 = $( "div.box2 img.selectedImage" ).attr("src");
+  var box3 = $( "div.box3 img.selectedImage" ).attr("src");
+  var box4 = $( "div.box4 img.selectedImage" ).attr("src");
+  var box5 = $( "div.box5 img.selectedImage" ).attr("src");
+  var box6 = $( "div.box6 img.selectedImage" ).attr("src");
+  var box7 = $( "div.box7 img.selectedImage" ).attr("src");
+  var box8 = $( "div.box8 img.selectedImage" ).attr("src");
+  var box9 = $( "div.box9 img.selectedImage" ).attr("src");
+
+    if ( box1 === box2 && box2 === box3 ) {
+      $( "div.win-combo img.hor1" ).show();
+      win = true;
+    } else if ( box4 === box5 && box5 === box6 ) {
+      $( "div.win-combo img.hor2" ).show();
+      win = true;
+    } else if ( box7 === box8 && box8 === box9 ) {
+      $( "div.win-combo img.hor3" ).show();
+      win = true;
+    } else if ( box1 === box4 && box4 === box7 ) {
+      $( "div.win-combo img.ver1" ).show();
+      win = true;
+    } else if ( box2 === box5 && box5 === box8 ) {
+      $( "div.win-combo img.ver2" ).show();
+      win = true;
+    } else if ( box3 === box6 && box6 === box9 ) {
+      $( "div.win-combo img.ver3" ).show();
+      win = true;
+    } else if ( box1 === box5 && box5 === box9 ) {
+      $( "div.win-combo img.dia1" ).show();
+      win = true;
+    } else if ( box3 === box5 && box5 === box7 ) {
+      $( "div.win-combo img.dia2" ).show();
+      win = true;
+    }
+}
+
+// if (( $( "div.box1 img.selectedImage" ).attr("src") === xImage &&
+//       $( "div.box2 img.selectedImage" ).attr("src") === xImage &&
+//       $( "div.box3 img.selectedImage" ).attr("src") === xImage ) ||
+//     ( $( "div.box1 img.selectedImage" ).attr("src") === oImage &&
+//       $( "div.box2 img.selectedImage" ).attr("src") === oImage &&
+//       $( "div.box3 img.selectedImage" ).attr("src") === oImage )) {
+//       $( "div.win-combo img.hor1" ).show();
+// }
+
+/// FIGURE OUT: once a win happens no more clicks in grid are needed?
